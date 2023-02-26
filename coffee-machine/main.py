@@ -34,7 +34,6 @@ resources = {
 money = 0
 
 
-# TODO: 1. Prompt user by asking "What would you like? (espresso/latte/cappuccino):"
 def ask_user():
     answer = ""
     while answer != "espresso" and answer != "latte" and answer != "cappuccino" and answer != "report" and answer != "off":
@@ -42,7 +41,6 @@ def ask_user():
     return answer
 
 
-# TODO: 3. Print reporting function ☕
 def report():
     print(f"water: {resources['water']}ml")
     print(f"milk: {resources['milk']}ml")
@@ -50,7 +48,6 @@ def report():
     print(f"Money: ${money}")
 
 
-# TODO: 4. Check resources sufficient?
 def check_resources(coffee_type):
     for ingredient in MENU[coffee_type]["ingredients"]:
         if resources[ingredient] < MENU[coffee_type]["ingredients"][ingredient]:
@@ -59,7 +56,6 @@ def check_resources(coffee_type):
     return True
 
 
-# TODO: 5. Process coins.
 def process_coins():
     print("Please insert coins.")
     quarters = int(input("How many quarters?: "))
@@ -70,7 +66,6 @@ def process_coins():
     return total
 
 
-# TODO: 6. check transaction
 def check_transaction(coffee_type, total_money):
     if total_money > MENU[coffee_type]["cost"]:
         money_change = round(total_money - MENU[coffee_type]["cost"], 2)
@@ -84,12 +79,10 @@ def check_transaction(coffee_type, total_money):
         return False
 
 
-# TODO: 7. Make coffee
 def make_coffee(coffee_type):
     for ingredient in MENU[coffee_type]["ingredients"]:
         resources[ingredient] -= MENU[coffee_type]["ingredients"][ingredient]
     print(f"Here is your {coffee_type} ☕. Enjoy!")
-# TODO: 2. Turn off machine by entering "off" to the prompt
 
 
 # Main program----------
